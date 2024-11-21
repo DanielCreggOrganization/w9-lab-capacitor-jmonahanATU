@@ -13,10 +13,32 @@
     </ion-toolbar>
   </ion-header>
 
-
   <ion-button (click)="takePicture()">Take Picture</ion-button>
   @if (capturedImage) {
-  <img [src]="capturedImage" />
+    <img [src]="capturedImage" />
   }
 
+  <ion-button (click)="getLocation()">Get Current Location</ion-button>
+  @if (currentPosition) {
+    <p>Latitude: {{currentPosition.latitude}}</p>
+    <p>Longitude: {{currentPosition.longitude}}</p>
+  }
+
+  <ion-button (click)="getDeviceInfo()">Get Device Info</ion-button>
+  @if (deviceInfo) {
+    <ion-list>
+      <ion-item>
+        <ion-label>Model: {{deviceInfo.model}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Platform: {{deviceInfo.platform}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Operating System: {{deviceInfo.operatingSystem}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Battery Level: {{batteryLevel}}%</ion-label>
+      </ion-item>
+    </ion-list>
+  }
 </ion-content>
